@@ -1,23 +1,41 @@
+"""
+Ejercicio simulando una cuenta bancaria
+"""
+
 from os import system
+
+# Clase Persona
 class Persona:
 
     def __init__(self, nombre, apellido):
+        """
+        Atribudos de instancia
+        """
         self.nombre = nombre
         self.apellido = apellido
 
 
+# Clase Cliente que hereda de Persona
 class Cliente(Persona):
 
-    def __init__(self, nombre, apellido, numero_cuenta, saldo):
+    saldo = 0
+
+    def __init__(self, nombre, apellido, numero_cuenta):
+        """
+        Atributos de instancia, beben de Persona
+        """
         super().__init__(nombre, apellido)
         self.numero_cuenta = numero_cuenta
-        self.saldo = saldo
 
 
     def __str__(self):
+        """
+        Método especial para imprimir en pantalla
+        """
         return f"Hola {self.nombre} {self.apellido} su número de cuenta es {self.numero_cuenta} y su saldo es de {round(self.saldo,2)}€"
 
 
+    # Función para depositar
     def depositar(self, deposito):
 
         print(f"El deposito de {deposito}€ se ha efectuado correctamente")
@@ -25,6 +43,7 @@ class Cliente(Persona):
         self.saldo += deposito
 
 
+    # Función para retirar
     def retirar(self, retiro):
 
         if retiro > self.saldo:
@@ -34,16 +53,19 @@ class Cliente(Persona):
             self.saldo -= retiro
 
 
+# Función para elegir una opción
 def elegir_opcion():
 
     print("[1].Depositar dinero")
     print("[2].Retirar dinero")
     print("[3].Salir")
 
+    # Bucle para elegir una opción
     while True:
 
         opcion = input("Elige una opción | 1, 2 o 3: ")
 
+        # Validar opción
         try:
             opcion = int(opcion)
 
@@ -58,10 +80,14 @@ def elegir_opcion():
     return opcion
 
 
+# Función para hacer los depósitos
 def hacer_deposito():
 
+    # Bucle para indicar el depísto
     while True:
         deposito = input("Cuánto deseas depositar?: ")
+
+        # Validar depósito
         try:
             deposito = float(deposito)
             break
@@ -71,12 +97,15 @@ def hacer_deposito():
     return round(deposito, 2)
 
 
+# Función para hacer los retiros
 def hacer_retiro():
 
+    # Bucle para indicar el retiro
     while True:
 
         retiro = input("Cuánto deseas retirar?: ")
 
+        # Validar retiro
         try:
             retiro = float(retiro)
             break
@@ -86,32 +115,25 @@ def hacer_retiro():
     return round(retiro, 2)
 
 
+# Función para crear el cliente
 def crear_cliente():
 
     nombre = input("Por favor, dime tu nombre: ")
     apellido = input("Por favor, dime tu apellido: ")
     numero_cuenta = input("Cuál es su número de cuenta?: ")
 
-    while True:
-
-        saldo = input("De cuánto sería su saldo disponible?: ")
-
-        try:
-            saldo = float(saldo)
-            break
-        except ValueError:
-            print(f"\"{saldo}\" no es un saldo correcto")
-
-    cliente_creado = Cliente(nombre,apellido, numero_cuenta, saldo)
+    cliente_creado = Cliente(nombre,apellido, numero_cuenta)
 
     return cliente_creado
 
 
+# Función para iniciar la aplicación
 def inicio():
 
     cliente_creado = crear_cliente()
     system("cls")
 
+    # Bucle para iniciar la aplicación
     while True:
 
         print("*********************")
@@ -121,6 +143,7 @@ def inicio():
 
         opcion = elegir_opcion()
 
+        # Validar opción
         if opcion == 1:
             deposito = hacer_deposito()
             cliente_creado.depositar(deposito)
@@ -131,12 +154,7 @@ def inicio():
         else:
             break
 
-    print("Gracias por operar en banco Abolafio's Bank")
+    print("Gracias por operar en nuestro banco")
 
 
 inicio()
-
-# cliente1 = Cliente("Antonio", "Abolafio", "zxcv1234", 1000)
-# print(cliente1)
-# cliente1.depositar()
-# cliente1.retirar()

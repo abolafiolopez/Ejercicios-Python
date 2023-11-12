@@ -51,7 +51,6 @@ def otro_turno():
     while True:
         print("\nQuieres sacar otro turno?\n[S] - Sí\n[N] - No")
 
-        # Comprueba si quieres seguir o no
         try:
             otro_turno = input("\nElige una opción: ").lower()
             ["s", "n"].index(otro_turno)
@@ -68,7 +67,7 @@ def inicio():
     Función para iniciar el programa
     """
 
-    # Bucle que arranca la función
+    # Bucle para iniciar la función
     while True:
 
         system("cls")

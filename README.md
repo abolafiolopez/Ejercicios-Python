@@ -1,1 +1,1 @@
-Repositorio de ejercicios realizados con Python
+Repositorio de ejercicios realizados con Python.

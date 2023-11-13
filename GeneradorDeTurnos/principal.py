@@ -2,7 +2,7 @@ import turnos
 from os import system
 
 # Areas de la Farmacia
-areas = {"Farmacia": turnos.turno_farmacia(), "Perfumeria": turnos.turno_perfumeria(), "Cosmética":turnos.turno_cosmetica()}
+areas = {"Farmacia": turnos.turno_farmacia(), "Perfumería": turnos.turno_perfumeria(), "Cosmética":turnos.turno_cosmetica()}
 numero_areas = len(areas)
 
 
@@ -45,7 +45,7 @@ def otro_turno():
         print("\nQuieres sacar otro turno?\n[S] - Sí\n[N] - No")
         # Validar otro turno
         try:
-            otro_turno = input("\nElige una opción: ").lower()
+            otro_turno = input("Elige una opción: ").lower()
             ["s", "n"].index(otro_turno)
         except ValueError:
             print("No has elegido una opción correcta")

@@ -63,7 +63,6 @@ def inicio():
         system("cls")
         print("Bienvenid@ a Farmacia Lizanus")
         print("Estas son nuestras áreas\n")
-
         area_elegida = elegir_area()
         turnos.decorador_de_turnos(areas[area_elegida])
         continuar_finalizar = otro_turno()

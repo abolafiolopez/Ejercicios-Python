@@ -35,7 +35,3 @@ for i in range(1, 51):
 # Bucle para imprimir cada título de la lista
 for titulo in lista_titulos:
     print(titulo)
-
-
-
-

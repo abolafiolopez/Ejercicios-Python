@@ -28,7 +28,7 @@ def anagrama(string_1, string_2):
         return True
 
 
-palabra_1 = "casa"
-palabra_2 = "acsa"
+palabra_1 = "lacteo"
+palabra_2 = "coleta"
 
 print(anagrama(palabra_1, palabra_2))

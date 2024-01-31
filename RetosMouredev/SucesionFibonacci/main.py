@@ -6,6 +6,7 @@
  0, 1, 1, 2, 3, 5, 8, 13...
  """
 
+# Método 1
 numeros = []
 i = 0
 n = 0
@@ -24,6 +25,7 @@ while i <= 50:
 print(numeros)
 
 
+# Método 2
 n1 = 0
 n2 = 1
 
